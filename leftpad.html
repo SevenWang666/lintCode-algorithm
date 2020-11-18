@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<he
+ad>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+function leftpad(str,length,ch){
+   if(!ch&&ch!==0){
+       ch=' '
+   } 
+   var len = length - str.length+1
+   return Array(len).join(ch)+str
+}
+function leftpad2(str,length,ch){
+    let len =length - str.length
+    let total = ''
+    while(len){
+        if(len%2==1){
+            total +=ch
+        }
+        if(len==1){
+            return total+str
+        }
+      ch+=ch
+      len= parseInt(len/2)
+    }
+}
+function leftpad3(str,length,ch){
+    let len=length-str.length
+    let total=''
+    while(len){
+        if(len & 1){
+            total+=ch
+        }
+        if(len==1){
+            return total+str
+        }
+        ch+=ch
+        len =  len>>1
+    }
+}
+var myPow = function(x, n) {
+    var result=1
+    if(n==0||x==1) return 1
+
+    if(n<0){
+        n=-n
+        x=1/x
+    }
+    while(n){
+        if(n&1){
+            result *=x
+        }
+        if(n==1){
+            return result
+        }
+        x=x*x
+        n=n>>1
+    }
+};
+var mySqrt = function(x) {
+    if(x==1){
+        return 1
+    }
+    var min=0;
+    var max=x;
+    var mid;
+    while(min<=max){
+        mid = Math.ceil((min+max)/2)
+        if(mid*mid===x) return mid
+        if(mid*mid<x){
+            min=mid+1
+        }else{
+            max=mid-1
+        }
+    }
+    return min;
+};
+// myPow(2,-2147483648)
+// console.time('leftpad')
+// leftpad3('hello',1000000000,'0')
+// console.timeEnd('leftpad')
+// console.time('leftpad2')
+// leftpad2('hello',1000000000,'0')
+// console.timeEnd('leftpad2')
+
+console.log(mySqrt(8))
+
+</script>
+<body>
+    
+</body>
+</html>
