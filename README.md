@@ -1,2 +1,2 @@
 # lintCode-algorithm
-力扣算法联系
+力扣算法练习
